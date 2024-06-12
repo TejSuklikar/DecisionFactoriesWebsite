@@ -19,30 +19,35 @@
             align-items: center;
             justify-content: flex-start;
             min-height: 100vh;
+            width: 100%;
+            box-sizing: border-box;
         }
-        .header {
+        .header, .footer, .navbar, .quote-section {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .header, .footer {
             background-color: #0288d1;
             color: #fff;
             padding: 20px;
             text-align: center;
-            margin-bottom: 40px;
-            width: 100%;
         }
         .navbar {
             background-color: #0288d1;
             color: #fff;
             padding: 10px 0;
             text-align: center;
-            width: 100%;
+            position: relative;
         }
         .navbar ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            justify-content: center;
         }
         .navbar ul li {
-            display: inline-block;
-            margin-right: 20px;
+            margin: 10px;
         }
         .navbar ul li a {
             color: #fff;
@@ -53,6 +58,14 @@
         .navbar ul li a:hover {
             color: #ff8700;
         }
+        .navbar .menu-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 30px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
         h1 {
             font-size: 36px;
         }
@@ -61,14 +74,17 @@
             color: #333;
             margin-bottom: 20px;
         }
+        .brief, .product {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
         .product {
             border: 2px solid #0288d1;
             border-radius: 8px;
-            padding: 20px;
             margin-bottom: 40px;
-            max-width: 600px;
-            width: 100%;
-            box-sizing: border-box;
         }
         .product h3 {
             font-size: 24px;
@@ -90,25 +106,71 @@
             color: #333;
             padding: 40px;
             text-align: center;
-            width: 100%;
         }
         .quote-section blockquote {
-            font-size: 32px;
+            font-size: 24px;
             font-style: italic;
             margin-bottom: 20px;
             color: #0288d1;
         }
         .quote-section footer {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: bold;
             color: #0288d1;
         }
-        .footer {
-            background-color: #0288d1;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            width: 100%;
+
+        @media (max-width: 767px) {
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                background-color: #0288d1;
+                width: 100%;
+                padding: 10px 0;
+            }
+            .navbar ul li {
+                margin: 10px 0;
+            }
+            .navbar .menu-icon {
+                display: block;
+            }
+        }
+
+        @media (min-width: 768px) {
+            body {
+                font-size: 18px;
+                padding: 30px;
+            }
+            h1 {
+                font-size: 48px;
+            }
+            h2 {
+                font-size: 32px;
+            }
+            .quote-section blockquote {
+                font-size: 32px;
+            }
+            .quote-section footer {
+                font-size: 24px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            body {
+                font-size: 20px;
+                padding: 40px;
+            }
+            h1 {
+                font-size: 56px;
+            }
+            h2 {
+                font-size: 36px;
+            }
+            .quote-section blockquote {
+                font-size: 36px;
+            }
+            .quote-section footer {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
@@ -119,7 +181,8 @@
         </div>
 
         <div class="navbar">
-            <ul>
+            <span class="menu-icon" onclick="toggleMenu()">☰</span>
+            <ul id="menu">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="products.html">Products</a></li>
@@ -142,5 +205,16 @@
             <p>&copy; 2024 Decision Factories LLC. All Rights Reserved.</p>
         </div>
     </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
+        }
+    </script>
 </body>
 </html>
