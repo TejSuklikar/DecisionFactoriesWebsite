@@ -38,10 +38,70 @@
             list-style-type: disc;
             margin-left: 20px;
         }
+        .navbar {
+            background-color: #0288d1;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .navbar ul li {
+            margin: 10px;
+        }
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+        .navbar ul li a:hover {
+            color: #ff8700;
+        }
+        .navbar .menu-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 30px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        @media (max-width: 767px) {
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                background-color: #0288d1;
+                width: 100%;
+                padding: 10px 0;
+            }
+            .navbar ul li {
+                margin: 10px 0;
+            }
+            .navbar .menu-icon {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="navbar">
+            <span class="menu-icon" onclick="toggleMenu()">☰</span>
+            <ul id="menu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
         <h1>About Us</h1>
         <h2>Founders</h2>
         <p>Decision Factories was founded in 2019 by Atul Suklikar. Atul holds a Bachelor of Science in Electrical Engineering from the California Institute of Technology. He also earned a Master's degree in Computer Science and an MBA from Stanford University. With over 30 years of experience in Silicon Valley, Atul has worked extensively with large corporations and startups, gaining invaluable expertise in AI and technology.</p>
@@ -50,5 +110,17 @@
         <p>Decision Factories is at the forefront of innovation in artificial intelligence technology. Our team of experts leverages cutting-edge AI algorithms and machine learning techniques to develop solutions that transform businesses and drive growth. We specialize in delivering AI-powered insights, predictive analytics, and automation tools that enable organizations to make data-driven decisions with confidence.</p>
         <p>We are committed to pushing the boundaries of what AI can achieve, continuously exploring new avenues for innovation and advancement. Our mission is to empower businesses with intelligent solutions that enhance efficiency, productivity, and competitiveness in today's fast-paced digital landscape.</p>
     </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
+        }
+    </script>
 </body>
 </html>
+
